@@ -1,6 +1,6 @@
 <?php 
  require_once("koneksi.php");
- $sql = "select no_anggota,nama_lengkap,email,no_hp,jenis_anggota,alamat from anggota order by id desc";
+ $sql = "select id,no_anggota,nama_lengkap,email,no_hp,jenis_anggota,alamat from anggota order by id desc";
 
  $hasil  = mysqli_query($koneksi, $sql);
  $jumlah = mysqli_num_rows($hasil). " Data ditemukan";
@@ -38,10 +38,10 @@
                     <td><?php echo htmlspecialchars($baris['alamat']); ?></td>
                     
                     <td>
-                        <a href="detail.php?id=<?php echo (int) $baris['no_anggota']; ?>">Detail</a>
+                        <a href="detail.php?id=<?php echo (int)$baris['id']; ?>">Detail</a>
                         <form class="inline" action="hapus.php" method="POST"
                                 onsubmit="return confirm('Yakin ingin menghapus data ini?');">
-                            <input type="hidden" name="no_anggota" value="<?php echo (int) $row['no_anggota']; ?>">
+                            <input type="hidden" name="id" value="<?php echo (int)$baris['id']; ?>">
                             <button type="submit">Hapus</button>
                         </form>
                     </td>

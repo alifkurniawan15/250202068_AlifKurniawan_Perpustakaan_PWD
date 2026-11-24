@@ -38,6 +38,10 @@
                     <td><?php echo htmlspecialchars($baris['alamat']); ?></td>
                     
                     <td>
+                        <a href="edit_anggota.php?id=<?php echo $baris["id"]; ?>">
+                            EDIT 
+                        </a>    ||
+
                         <a href="detail.php?id=<?php echo (int)$baris['id']; ?>">Detail</a>
                         <form class="inline" action="hapus.php" method="POST"
                                 onsubmit="return confirm('Yakin ingin menghapus data ini?');">
